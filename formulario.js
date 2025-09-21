@@ -46,13 +46,21 @@ var crud = (() => {
     container.innerHTML = ""
     const clone = templateContent.cloneNode(true)
     container.appendChild(clone)
+
     if (item) {
-      Object.entries(item).forEach(([key, value]) => {
-        const input = form.elements.namedItem(key)
-        if (input) input.value = value
-      })
+    Object.entries(item).forEach(([key, value]) => {
+      const input = form.elements.namedItem(key)
+      if (input) input.value = value
+    })
     }
-    modal.show()
+    const calcBtn = form.querySelector("#calcFreteBtn")
+    if (calcBtn) {
+    calcBtn.onclick = () => calcFrete()
+  }
+
+  modal.show()
+}
+    
   }
 
   const edit = (id) => {
@@ -86,4 +94,5 @@ var crud = (() => {
   render()
   return { showForm, edit, remove, download }
 })()
+
 
