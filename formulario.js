@@ -1,4 +1,4 @@
-const crud = (() => {
+var crud = (() => {
   const STORAGE_KEY = "crud-dados"
   let dados = JSON.parse(localStorage.getItem(STORAGE_KEY)) || []
   let idAtual = dados.length ? Math.max(...dados.map(r => r.id)) + 1 : 1
@@ -86,3 +86,4 @@ const crud = (() => {
   render()
   return { showForm, edit, remove, download }
 })()
+
